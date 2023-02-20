@@ -1,0 +1,17 @@
+: can you share  the config-pod.yml file?
+
+A: apiVersion: v1
+kind: Pod
+metadata:
+ name: configpod
+spec:
+ containers:
+  - name: c1
+    image: nginx
+    volumeMounts:
+     - name: myvolume
+       mountPath: /etc/config
+ volumes:
+  - name: myvolume
+    configMap:
+     name: config1
